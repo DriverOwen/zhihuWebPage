@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .wrapOuter{
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+  }
+  #model{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    background: rgba(0,0,0,0.3);
+    left: 0;
+    top: 0;
+  }
+  .model-con{
+    width: 400px;
+    height: 100px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -50px;
+    background: #fff;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  #close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    background: #fff;
+    width: 15px;
+    height: 15px;
+  }
+</style>
+<body>
+<div class="wrapOuter">
+  <button id="btn">点击出弹窗</button>
+  <div id="model">
+    <div class="model-con">
+      <span id="close">x</span>
+      弹框中的文本
+    </div>
+  </div>
+</div>
+</body>
+<!-- jQuery -->
+<!--<script type="text/javascript" charset="utf8" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>-->
+<script type="module">
+import {Ajax} from "./utils/ajax.js";
+import {Cookie} from "./utils/setCookie.js";
+
+let a = new Ajax();
+let Ck = new Cookie();
+a.put("/users/likingAnswers/5f21091f0a55ff3f00d3f8d0","",{
+  name:"Authorization",
+  value: Ck.getCookie("token")
+}).then(data => {
+  console.log(data);
+})
+</script>
+</html>

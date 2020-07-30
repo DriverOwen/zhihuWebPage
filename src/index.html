@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>知乎 - 有问题，上知乎</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" property="og:description" content="有问题，上知乎。知乎，可信赖的问答社区，以让每个人高效获得可信赖的解答为使命。知乎凭借认真、专业和友善的社区氛围，结构化、易获得的优质内容，基于问答的内容生产方式和独特的社区机制，吸引、聚集了各行各业中大量的亲历者、内行人、领域专家、领域爱好者，将高质量的内容透过人的节点来成规模地生产和分享。用户通过问答等交流方式建立信任和连接，打造和提升个人影响力，并发现、获得新机会。">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/login-page.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_564736_lstujzltrlh.css">
+</head>
+<body>
+  <div id="root">
+    <div id="main">
+      <div class="login">
+        <div class="loginCard">
+          <div class="hd-img">
+            <img class="hd-img-content" src="images/login/hd_logo.png" alt="">
+          </div>
+          <div class="form">
+            <form action="" onsubmit="return false;">
+              <div class="userPd">
+                <div class="account-tabs">
+                  <div class="account-tab">
+                    注册账号
+                  </div>
+                  <div class="account-tab account-tab-active">
+                    密码登录
+                  </div>
+                  <div class="qrcodeTa">
+                    <div class="mask"></div>
+                    <img class="qrcodeTa-img" src="images/login/qrcode.png" alt="">
+                  </div>
+                </div>
+                <div class="account-input tab-show">
+                  <div class="user-input">
+                    <input class="user_ipt" type="text" placeholder="手机号或邮箱">
+                  </div>
+                  <div class="password-input">
+                    <input class="password-ipt" type="password" placeholder="密码">
+                    <div class="isShow-pd iconfont icon-icon-test1"></div>
+                  </div>
+                  <div class="account-options">
+                    <button type="button" class="overseas" style="color:#175199">海外手机号登录</button>
+                    <button type="button">忘记密码？</button>
+                  </div>
+                </div>
+                <div class="account-input-noPd">
+                  <div class="user-input">
+                    <input class="user_ipt_sign" type="text" placeholder="请输入账号">
+                    <span class="errorInfo"></span>
+                  </div>
+                  <div class="password-input">
+                    <input class="password_ipt_sign" type="password" placeholder="设置密码">
+                    <span class="errorInfo"></span>
+                  </div>
+                  <div class="password-input">
+                    <input class="password_ipt_sign_rep" type="password" placeholder="确定密码">
+                    <span class="errorInfo"></span>
+                  </div>
+                  <div class="phone-input">
+                    <input class="phone_ipt_sign_rep" type="text" placeholder="请输入手机号码">
+                    <span class="errorInfo"></span>
+                  </div>
+                </div>
+                <button class="button-submit">登录</button>
+                <div class="account-tip">
+                  <div>未注册手机验证后自动登录，注册即代表同意《知乎协议》《隐私保护指引》</div>
+                </div>
+              </div>
+              <div class="Login-socialLogin">
+                <span>社交帐号登录</span>
+                <div>
+                  <span>
+                    <i class="iconfont socialLogin-icon icon--"></i>
+                    <span>微信</span>
+                  </span>
+                  <span>
+                    <i class="iconfont socialLogin-icon icon-qq-icon"></i>
+                    <span>QQ</span>
+                  </span>
+                  <span>
+                    <i class="iconfont socialLogin-icon icon-weibo"></i>
+                    <span>微博</span>
+                  </span>
+                </div>
+              </div>
+              <div class="account-footer">
+                <div class="account-footer-box">
+                  <div>
+                    <img src="images/login/identify.png" style="width: 30px;height: 30px;" alt="">
+                    <span>开通机构号</span>
+                  </div>
+                  <div>
+                    <img src="images/zhihu.jpg" alt="">
+                    <span>下载知乎App</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form class="qrcodeTa-box" onsubmit="return false;">
+              <div>
+                <div class="qrcode-ta2">
+                  <div class="mask"></div>
+                  <img class="qrcodeTa-img" src="images/login/phone.png" alt="">
+                </div>
+                <div class="Qrcode-title">扫码登录</div>
+                <div class="Qrcode-content">
+                  <div class="Qrcode-img">
+                    <img src="images/login/qrcode.png" alt="" class="Qrcode-qrcode">
+                    <img src="images/login/notice.png" alt="" class="Qrcode-tips">
+                  </div>
+                  <p>打开 知乎App</p>
+                  <p>二维码功能暂时未开发</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="ZhihuLinks"><a target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com">知乎专栏 · </a><a target="_blank" rel="noopener noreferrer" href="/roundtable">圆桌 · </a><a target="_blank" rel="noopener noreferrer" href="/explore">发现 · </a><a target="_blank" rel="noopener noreferrer" href="/app">移动应用 · </a><a target="_blank" rel="noopener noreferrer" href="/contact">联系我们 · </a><a target="_blank" rel="noopener noreferrer" href="https://app.mokahr.com/apply/zhihu">来知乎工作 · </a><a target="_blank" rel="noopener noreferrer" href="/org/signup">注册机构号</a></div>
+        <div class="ZhihuRights"><span>© 2020 知乎</span><a target="_blank" rel="noopener noreferrer" href="https://tsm.miit.gov.cn/dxxzsp/">京 ICP 证 110745 号</a><a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn">京 ICP 备 13052560 号 - 1</a><a target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"><img src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png">京公网安备 11010802010035 号</a><a href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg" target="_blank" rel="noopener noreferrer">出版物经营许可证</a></div>
+        <div class="ZhihuReports"><a target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com/p/51068775">侵权举报 · </a><a target="_blank" rel="noopener noreferrer" href="http://www.12377.cn">网上有害信息举报专区</a><a target="_blank" rel="noopener noreferrer" href="/term/child-jubao"> · 儿童色情信息举报专区</a><span> · 违法和不良信息举报：010-82716601</span></div>
+      </div>
+
+    </div>
+  </div>
+</body>
+<script type="module" src="js/login/domEvent.js"></script>
+
+</html>
