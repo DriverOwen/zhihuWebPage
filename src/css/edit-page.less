@@ -1,0 +1,252 @@
+.Card{
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.Button{
+  display: inline-block;
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 32px;
+  color: #8590a6;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: 1px solid;
+  border-radius: 3px;
+}
+#user{
+  .ProfileHeader {
+    position: relative;
+    width: 1000px;
+    padding: 0 16px;
+    margin: 10px auto;
+    .Card{
+      .Card();
+      .UserCoverEditor{
+        position: relative;
+        .UploadPicture-wrapper {
+          cursor: pointer;
+          .UploadPicture-input {
+            display: none;
+          }
+          .UserCoverGuide {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-top-right-radius: 1px;
+            border-top-left-radius: 1px;
+            .UserCoverGuide-inner {
+              position: relative;
+              z-index: 2;
+              float: right;
+              padding: 24px;
+              .UserCoverGuide-buttonContainer {
+                margin-bottom: 14px;
+                text-align: right;
+                .DynamicColorButton {
+                  color: #d3d3d3;
+                  -webkit-transition: color,border-color .3s;
+                  transition: color,border-color .3s;
+                  padding: 0 16px;
+                  font-size: 14px;
+                  line-height: 32px;
+                  text-align: center;
+                  cursor: pointer;
+                  background: none;
+                  border: 1px solid;
+                  border-radius: 3px;
+                  display: flex;
+                  align-items: center;
+                  svg{
+                    margin-right: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .UserCover {
+        position: relative;
+        height: 132px;
+        background: #999;
+        overflow: hidden;
+        border-top-right-radius: 1px;
+        border-top-left-radius: 1px;
+        -webkit-transition: height .3s;
+        transition: height .3s;
+        .UserCover-image, .UserCover-image img {
+          width: 100%;
+          height: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
+      }
+      .ProfileHeader-wrapper {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        .ProfileHeader-main {
+          position: relative;
+          margin: 0 20px 24px;
+          .ProfileHeader-avatar {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            z-index: 1;
+            .UserAvatar {
+              display: inline-block;
+              overflow: hidden;
+              vertical-align: top;
+              background-color: #fff;
+              border: 4px solid #fff;
+              border-radius: 8px;
+              .UserAvatar-inner {
+                vertical-align: top;
+                border-radius: 4px;
+                background: #fff;
+              }
+            }
+            .UploadPicture-wrapper {
+              cursor: pointer;
+              .UploadPicture-input{
+                display: none;
+              }
+              .Mask {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                -webkit-transition: opacity .2s ease-in;
+                transition: opacity .2s ease-in;
+                .Mask-mask {
+                  position: absolute;
+                  z-index: -1;
+                  width: 100%;
+                  height: 100%;
+                  opacity: .4;
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  background: #1a1a1a;
+                }
+                .UserAvatarEditor-maskInner {
+                  z-index: 4;
+                  border: 4px solid #fff;
+                  border-radius: 8px;
+                }
+                .Mask-content {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  z-index: 5;
+                  color: #fff;
+                  text-align: center;
+                  -webkit-transform: translate(-50%,-50%);
+                  transform: translate(-50%,-50%);
+                  .UserAvatarEditor-maskInnerText {
+                    white-space: nowrap;
+                  }
+                  .UserAvatarEditor-cameraIcon {
+                    margin-bottom: 14px;
+                    fill: #fff;
+                  }
+                }
+              }
+              .Mask-hidden {
+                pointer-events: none;
+                opacity: 0;
+              }
+            }
+          }
+          .ProfileHeader-content {
+            padding-top: 16px;
+            padding-left: 32px;
+            border-left: 164px solid transparent;
+            .ProfileEdit-fields {
+              padding-bottom: 100px;
+              margin-top: 10px;
+              .Field {
+                padding: 30px 0;
+                border-bottom: 1px solid #ebebeb;
+                .Field-label {
+                  position: absolute;
+                  font-size: 15px;
+                  font-weight: 600;
+                  font-synthesis: style;
+                  line-height: 36px;
+                  color: #444;
+                }
+                .Field-content {
+                  padding: 0 64px 0 140px;
+                  line-height: 36px;
+
+                  div{
+                    input{
+                      &.Input{
+                        color: #1a1a1a;
+                        height: 24px;
+                        line-height: 24px;
+                        flex: 1 1;
+                        padding-left: 10px;
+                      }
+                    }
+                    .ButtonGroup {
+                      margin-top: 24px;
+                      vertical-align: top;
+                      button{
+                        margin-right: 10px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .ProfileHeader-contentFooter {
+              position: relative;
+              padding-top: 8px;
+              .ProfileHeader-expandButton {
+                display: flex;
+                align-items: center;
+                line-height: 1;
+                height: auto;
+                padding: 0;
+                background-color: transparent;
+                border: none;
+                border-radius: 0;
+                font-size: 14px;
+                color: #8590a6;
+                text-align: center;
+                cursor: pointer;
+              }
+              .ProfileHeader-buttons {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                button{
+                  color: #0084ff;
+                  border-color: #0084ff;
+                  transition: background 0.3s ease;
+                  &:hover{
+                    background: rgba(0,132,255,0.1);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import {Ajax} from "./ajax.js";
-import {Cookie} from "./setCookie.js";
+import {Cookie} from "./Cookie.js";
 
 let Aj = new Ajax(),
   Ck = new Cookie();

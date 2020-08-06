@@ -62,10 +62,84 @@ function AskSubmit(btn,color,text){
   },800);
 }
 
+/* 检查文件类型 */
+function Check_FileType(str) {
+  let pos = str.lastIndexOf(".");
+  let lastname = str.substring(pos,str.length)  //此处文件后缀名也可用数组方式获得str.split(".")
+  if (lastname.toLowerCase()!=".jpg" && lastname.toLowerCase()!=".jpeg" && lastname.toLowerCase()!=".png") {
+    alert("您上传的文件类型为"+lastname+"，图片必须为.jpg,.png等类型");
+    return false;
+  } else {
+    return true;
+  }
+}
+
+/* 时间过滤器 */
+function diffTime(date) {
+  //console.log(date);
+  let seconds = Math.floor((new Date() - new Date(date)) / 1000);
+
+  const yearseconds = 365 * 24 * 60 * 60;// 一年有多少秒
+  const monthseconds = 30 * 24 * 60 * 60; //  一个月有多少秒
+  const dateseconds = 24 * 60 * 60;// 一天有多少秒
+
+  let interval = 0;
+
+  if (seconds > yearseconds) {
+    return createAt(date);
+  } else if (seconds > monthseconds) {
+    interval = Math.floor(seconds / monthseconds);
+    return interval + ' 月前';
+  } else if (seconds > dateseconds) {
+    interval = Math.floor(seconds / dateseconds);
+    return interval + ' 天前';
+  } else if (seconds > 3600) {
+    interval = Math.floor(seconds / 3600);
+    return interval + ' 小时前';
+  } else if (seconds > 60) {
+    interval = Math.floor(seconds / 60);
+    return interval + ' 分钟前';
+  } else {
+    return '刚刚';
+  }
+  function createAt (date) {
+    let time = new Date(date);
+    let year = time.getFullYear();
+    let month = time.getMonth() + 1;
+    let day = time.getDate();
+    let hh = time.getHours();
+    let mm = time.getMinutes();
+    return year + '年' + month + '月' + day + '日' + ' ' + hh + ':' + mm;
+  }
+}
+
+function upQstElement(title,describe,parent,id) {
+  let input = document.createElement("input"),
+    textarea = document.createElement("textarea"),
+    btn  = document.createElement("button"),
+    divBox = document.createElement("div");
+  btn.innerHTML = "更新问题";
+  btn.classList.add("Button");
+  btn.classList.add("updateQst");
+  btn.id = id;
+  input.value = title;
+  input.className = "upQstIpt";
+  textarea.value = describe;
+  textarea.className = "upQstArea";
+  divBox.className = "UpdateWrapper";
+  divBox.appendChild(input);
+  divBox.appendChild(textarea);
+  divBox.appendChild(btn);
+  parent.appendChild(divBox);
+}
+
 export {
   getElement,
   loginOrUpWarning,
   sortQuestion,
   Voted,
-  AskSubmit
+  AskSubmit,
+  Check_FileType,
+  diffTime,
+  upQstElement
 }

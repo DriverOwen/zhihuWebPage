@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>知乎 - 有问题，上知乎</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" property="og:description" content="有问题，上知乎。知乎，可信赖的问答社区，以让每个人高效获得可信赖的解答为使命。知乎凭借认真、专业和友善的社区氛围，结构化、易获得的优质内容，基于问答的内容生产方式和独特的社区机制，吸引、聚集了各行各业中大量的亲历者、内行人、领域专家、领域爱好者，将高质量的内容透过人的节点来成规模地生产和分享。用户通过问答等交流方式建立信任和连接，打造和提升个人影响力，并发现、获得新机会。">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/user-page.css">
+  <link rel="stylesheet" href="css/question-page.css">
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_564736_8eu3y2rn56w.css">
+</head>
+<body>
+<div id="root">
+  <div>
+    <div class="headerBox"></div>
+  </div>
+  <main id="main">
+    <div id="user">
+      <div id="ProfileHeader" class="ProfileHeader">
+        <div class="Card">
+          <div class="ProfileHeader-userCover">
+            <div class="UserCoverEditor">
+              <div>
+                <lable class="UploadPicture-wrapper">
+                  <input type="file" accept="image/png,image/jpeg" class="UploadPicture-input">
+                  <div class="UserCoverGuide">
+                    <div class="UserCoverGuide-inner">
+                      <div class="UserCoverGuide-buttonContainer">
+                        <button class="DynamicColorButton">
+                          <svg class="Zi Zi--Camera" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M20.094 6S22 6 22 8v10.017S22 20 19 20H4.036S2 20 2 18V7.967S2 6 4 6h3s1-2 2-2h6c1 0 2 2 2 2h3.094zM12 16a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm0 1.5a5 5 0 1 0-.001-10.001A5 5 0 0 0 12 17.5zm7.5-8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill-rule="evenodd"></path></svg>
+                          上传封面图片
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </lable>
+                <div class="UserCover"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ProfileHeader-wrapper">
+            <div class="ProfileHeader-main">
+              <div class="ProfileHeader-avatar" style="top:-25px">
+                <div class="UserAvatar">
+                  <img class="UserAvatar-inner" width="160" height="160" src="" alt="">
+                </div>
+                <div class="UploadPicture-wrapper">
+                  <input type="file" accept="image/png,image/jpeg" class="UploadPicture-input">
+                  <div class="Mask UserAvatarEditor-mask Mask-hidden">
+                    <div class="Mask-mask UserAvatarEditor-maskInner"></div>
+                    <div class="Mask-content">
+                      <svg class="Zi Zi--Camera UserAvatarEditor-cameraIcon" fill="currentColor" viewBox="0 0 24 24" width="36" height="36"><path d="M20.094 6S22 6 22 8v10.017S22 20 19 20H4.036S2 20 2 18V7.967S2 6 4 6h3s1-2 2-2h6c1 0 2 2 2 2h3.094zM12 16a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm0 1.5a5 5 0 1 0-.001-10.001A5 5 0 0 0 12 17.5zm7.5-8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill-rule="evenodd"></path></svg>
+                      <div class="UserAvatarEditor-maskInnerText">
+                        修改我的头像
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ProfileHeader-content">
+                <div class="ProfileHeader-contentHead">
+                  <h1 class="ProfileHeader-title">
+                    <span class="ProfileHeader-name">Oweni</span>
+                    <span class="ProfileHeader-sex"></span>
+                    <span class="ztext ProfileHeader-headline">这人很懒，什么也没有留下</span>
+                  </h1>
+                </div>
+                <div class="ProfileHeader-contentBody">
+                  <div>
+                    <div class="ProfileHeader-info">
+                    </div>
+                  </div>
+                </div>
+                <div class="ProfileHeader-contentFooter">
+                  <button type="button" class="ProfileHeader-expandButton">
+                    <svg class="Zi Zi--ArrowDown" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M12 13L8.285 9.218a.758.758 0 0 0-1.064 0 .738.738 0 0 0 0 1.052l4.249 4.512a.758.758 0 0 0 1.064 0l4.246-4.512a.738.738 0 0 0 0-1.052.757.757 0 0 0-1.063 0L12.002 13z" fill-rule="evenodd"></path></svg>
+                    <span> 查看详细资料</span>
+                  </button>
+                  <div class="ProfileHeader-buttons">
+                    <button type="button" class="Button"><a href="edit.html" style="color:inherit;">编辑个人资料</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Profile-main">
+        <div class="Profile-mainColumn">
+          <div class="Card ProfileMain">
+            <div class="ProfileMain-header">
+              <ul class="ProfileMain-tabs">
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link is-active">
+                    动态
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    回答
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    提问
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    视频
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    文章
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    专栏
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    想法
+                    <span class="Tabs-meta">0</span>
+                  </a>
+                </li>
+                <li class="Tabs-item">
+                  <a href="javascript:void(0);" class="Tabs-link">
+                    更多
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="ListShortcut">
+              <div class="List ProfileActivities">
+                <div class="List-header">
+                  <h4 class="List-headerText">
+                    <span>我的动态</span>
+                  </h4>
+                </div>
+                <div class="List-content">
+                  <div class="List-item"  style="display: flex;justify-content: center;">
+                    <div class="ContentItem AnswerItem" style="display: flex;align-items: center;padding: 50px;flex-direction: column;">
+                      <svg width="150" height="120" viewBox="0 0 150 120" fill="currentColor"><g fill="none" fill-rule="evenodd"><path fill="#EBEEF5" d="M94 29v-2.002c0-.55.443-.998 1-.998h1c.553 0 1 .446 1 .998V29h2.002c.55 0 .998.443.998 1v1c0 .553-.446 1-.998 1H97v2.002c0 .55-.443.998-1 .998h-1c-.553 0-1-.446-1-.998V32h-2.002A.997.997 0 0 1 91 31v-1c0-.553.446-1 .998-1H94zm30.613 17.724l-21.82-4.638.207-3.023 22.237 4.727a6.004 6.004 0 0 1 4.62 7.122l-7.9 37.158a6.001 6.001 0 0 1-7.116 4.627l-15.31-3.254.63-2.934 15.31 3.25c1.62.34 3.218-.69 3.56-2.32l7.9-37.16a3.005 3.005 0 0 0-2.31-3.567zM48.596 85.727l.624 2.935-12.717 2.703a6.004 6.004 0 0 1-7.117-4.628L21.488 49.58a6.004 6.004 0 0 1 4.62-7.123L47 38.017l.133 3.038-20.402 4.337a3 3 0 0 0-2.3 3.564l7.9 37.157a3.005 3.005 0 0 0 3.56 2.317l12.71-2.703zM100 82c0 3.314-2.688 6-6.006 6H56.006A6.01 6.01 0 0 1 50 82V34c0-3.314 2.688-6 6.006-6h27.147v3H56.006A3.003 3.003 0 0 0 53 34v48c0 1.65 1.35 3 3.006 3h37.988A3.003 3.003 0 0 0 97 82V42.373h3V82zm-4.5-41C89.7 41 85 36.3 85 30.5S89.7 20 95.5 20 106 24.7 106 30.5 101.3 41 95.5 41zm0-3a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z" fill-rule="nonzero"></path><path fill="#F7F8FA" d="M47 73.22l-6.484 1.378c-.82.174-1.333.97-1.16 1.78.173.816.97 1.327 1.784 1.154L47 76.287V73.22zm0-8.594l-4.58.974c-.8.17-1.324.968-1.152 1.778a1.494 1.494 0 0 0 1.775 1.156l3.957-.84v-3.068zm0-17.285a6.002 6.002 0 0 0-8 5.66 6.002 6.002 0 0 0 8 5.66V47.34zm56 29.88l6.178 1.318a1.5 1.5 0 1 0 .624-2.934L103 74.148v3.067zm0-8.58l4.275.91c.808.17 1.6-.34 1.775-1.157a1.507 1.507 0 0 0-1.15-1.78l-4.9-1.04v3.067zm0-8.97c.626.22 1.3.34 2 .34 3.314 0 6-2.685 6-6s-2.686-6-6-6c-.7 0-1.374.12-2 .34v11.32zM76 56a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-8 7.5c0-.828.667-1.5 1.505-1.5h12.99a1.5 1.5 0 1 1 0 3h-12.99A1.5 1.5 0 0 1 68 63.5zm-5 8c0-.828.67-1.5 1.49-1.5h23.02c.822 0 1.49.666 1.49 1.5 0 .828-.67 1.5-1.49 1.5H64.49c-.822 0-1.49-.666-1.49-1.5z"></path></g></svg>
+                      <div style="color: #8590A6">刚来提问网?试试去关注感兴趣的话题</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="Profile-sideColumn">
+          <div class="Card CreatorEntrance">
+            <a href="javascript:void(0);" class="CreatorEntrance-link">
+              <div class="CreatorEntrance-hint">
+                <svg class="Zi Zi--Creator CreatorEntrance-creator" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M15.075 15.388l-3.024 3.024a4.041 4.041 0 0 0-1.014 1.697l-.26.868C7.844 20.986 4.91 21 2 21c.026-3.325 0-3.304.59-3.956 1.237-1.368 6.251-.68 6.44-2.976.043-.518-.36-1.06-.725-1.69C6.285 8.87 5.512 2 11.5 2c5.988 0 5.15 7.072 3.246 10.378-.357.62-.795 1.217-.724 1.77.073.571.477.958 1.053 1.24zm5.402 1.672c.523.55.523.646.523 3.94a535.11 535.11 0 0 0-4.434-.028l3.911-3.912zm-7.88 2.699c.111-.37.312-.705.584-.978l4.76-4.76a.291.291 0 0 1 .412 0l1.626 1.626a.291.291 0 0 1 0 .411l-4.76 4.76c-.272.273-.608.474-.978.585l-1.96.588a.219.219 0 0 1-.272-.272l.589-1.96zm9.157-6.742a.839.839 0 0 1 0 1.187l-.94.94a.28.28 0 0 1-.395 0l-1.563-1.563a.28.28 0 0 1 0-.395l.94-.94a.839.839 0 0 1 1.187 0l.771.771z" fill-rule="evenodd"></path></svg>
+                <div class="CreatorEntrance-text">
+                  <div>
+                    创作中心
+                    <span>去开通</span>
+                  </div>
+                </div>
+                <svg class="Zi Zi--ArrowRight CreatorEntrance-arrow CreatorEntrance-arrow--smallIcon" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path d="M9.218 16.78a.737.737 0 0 0 1.052 0l4.512-4.249a.758.758 0 0 0 0-1.063L10.27 7.22a.737.737 0 0 0-1.052 0 .759.759 0 0 0-.001 1.063L13 12l-3.782 3.716a.758.758 0 0 0 0 1.063z" fill-rule="evenodd"></path></svg>
+              </div>
+            </a>
+          </div>
+          <div class="Card FollowshipCard">
+            <div class="NumberBoard">
+              <a type="button" class="Button NumberBoard-item">
+                <div class="NumberBoard-itemInner">
+                  <div class="NumberBoard-itemName">
+                    关注了
+                  </div>
+                  <strong class="NumberBoard-itemValue" title="75">75</strong>
+                </div>
+              </a>
+              <a type="button" class="Button NumberBoard-item">
+                <div class="NumberBoard-itemInner" style="border-left: 1px solid #ebebeb;">
+                  <div class="NumberBoard-itemName">
+                    关注者
+                  </div>
+                  <strong class="NumberBoard-itemValue" title="75">75</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="Profile-lightList">
+            <a href="javascript:void(0);" class="Profile-lightItem">
+              <span class="Profile-lightItemName">关注的话题</span>
+              <span class="Profile-lightItemValue">22</span>
+            </a>
+            <a href="javascript:void(0);" class="Profile-lightItem">
+              <span class="Profile-lightItemName">关注的专栏</span>
+              <span class="Profile-lightItemValue">22</span>
+            </a>
+            <a href="javascript:void(0);" class="Profile-lightItem">
+              <span class="Profile-lightItemName">关注的问题</span>
+              <span class="Profile-lightItemValue">22</span>
+            </a>
+            <a href="javascript:void(0);" class="Profile-lightItem">
+              <span class="Profile-lightItemName">关注的收藏夹</span>
+              <span class="Profile-lightItemValue">22</span>
+            </a>
+          </div>
+          <div class="Profile-footerOperations">
+            <a href="javascript:void(0);">个人主页被浏览 0 次<a>
+          </div>
+          <footer class="Footer"><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="//liukanshan.zhihu.com/">刘看山</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="/question/19581624">知乎指南</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="/term/zhihu-terms">知乎协议</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="/term/privacy">知乎隐私保护指引</a><br><a class="Footer-item" target="_blank" href="/app">应用</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="https://app.mokahr.com/apply/zhihu">工作</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com/p/51068775">侵权举报</a><span class="Footer-dot"></span><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.12377.cn">网上有害信息举报专区</a><br><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="https://tsm.miit.gov.cn/dxxzsp/">京 ICP 证 110745 号</a><br><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn">京 ICP 备 13052560 号 - 1</a><br><a class="Footer-item" target="_blank" rel="noopener noreferrer" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"><img src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png">京公网安备 11010802010035 号</a><br><span class="Footer-item">互联网药品信息服务资格证书<br>（京）- 非经营性 - 2017 - 0067</span><span class="Footer-item">违法和不良信息举报：010-82716601</span><br><a class="Footer-item" target="_blank" href="/term/child-jubao">儿童色情信息举报专区</a><br><a class="Footer-item" target="_blank" href="/certificates">证照中心</a><br><a class="Footer-item" target="_blank" href="/contact">联系我们</a><span> © 2020 知乎</span></footer>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="cornerButtons"></div>
+</div>
+<div>
+  <div class="Menu-box">
+    <div class="Popover-content">
+      <span class="Popover-arrow">
+
+      </span>
+      <div class="AppHeaderProfileMenu">
+        <a href="#" class="Menu-item userPage">
+          <i class="iconfont icon-user1"></i>
+          <span>我的主页</span>
+        </a>
+        <a href="#" class="Menu-item changeInfo">
+          <i class="iconfont icon-Set"></i>
+          <span>设置</span>
+        </a>
+        <a href="#" class="Menu-item userLogout">
+          <i class="iconfont icon-shut-down-o"></i>
+          <span>退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div>
+    <div class="ModalBox">
+
+    </div>
+  </div>
+</div>
+<script type="module" src="js/user/domEvent.js"></script>
+<script type="module" src="utils/Router.js"></script>
+<!--<script type="module" src="js/questionCard.js"></script>-->
+</body>
+</html>

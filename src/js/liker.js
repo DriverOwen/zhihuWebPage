@@ -1,6 +1,6 @@
-import {Ajax} from "../../utils/ajax.js";
-import {Cookie} from "../../utils/setCookie.js";
-import {getElement} from "../../utils/public.js";
+import {Ajax} from "../utils/ajax.js";
+import {Cookie} from "../utils/Cookie.js";
+import {getElement} from "../utils/public.js";
 
 
 let Aj = new Ajax();

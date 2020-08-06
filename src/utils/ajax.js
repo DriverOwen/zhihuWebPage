@@ -18,16 +18,27 @@ class Ajax {
       xhr.setRequestHeader(header.name,"Bearer " + header.value);
       xhr.send(null);
     }else if(method === "post"){
+      //console.log(data);
       xhr.open('post', url , async);
       xhr.setRequestHeader(header.name,"Bearer " + header.value);
-      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      xhr.send(data);
+      if(Object.prototype.toString.call(data) === '[object FormData]'){
+        xhr.send(data);
+      }else{
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        xhr.send(data);
+      }
     }else if(method === "put"){
       xhr.open('put', url , async);
       xhr.setRequestHeader(header.name,"Bearer " + header.value);
       xhr.send(data);
     }else if(method === "delete"){
       xhr.open('delete', url , async);
+      xhr.setRequestHeader(header.name,"Bearer " + header.value);
+      xhr.send(data);
+    }else if(method === "patch"){
+      console.log(data);
+      xhr.open('PATCH', url , async);
+      xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       xhr.setRequestHeader(header.name,"Bearer " + header.value);
       xhr.send(data);
     }else{
@@ -65,7 +76,7 @@ class Ajax {
     let encodeData = this.encodeFormData(data);
     let url = this.targetUrl + path;
     //console.log(this.encodeFormData(data));
-    let receiveData = this.ajax(url,"post",this.encodeFormData(data),header,async);
+    let receiveData = this.ajax(url,"post",encodeData,header,async);
     //console.log(receiveData);
     return receiveData;
   }
@@ -85,8 +96,8 @@ class Ajax {
     if(!data) data = "";
     if(!header) header = {};
     let encodeData = this.encodeFormData(data);
-    let url = this.targetUrl + path + encodeData;
-    let receiveData = this.ajax(url,"put","",header,async);
+    let url = this.targetUrl + path;
+    let receiveData = this.ajax(url,"put",encodeData,header,async);
     return receiveData;
   }
   delete(path,data,header,async) {
@@ -94,30 +105,46 @@ class Ajax {
     if(!data) data = "";
     if(!header) header = {};
     let encodeData = this.encodeFormData(data);
-    let url = this.targetUrl + path + encodeData;
+    let url = this.targetUrl + path;
     let receiveData = this.ajax(url,"delete","",header,async);
+    return receiveData;
+  }
+  patch(path,data,header,async) {
+    if(!path) path = "";
+    if(!data) data = "";
+    if(!header) header = {};
+    let encodeData = this.encodeFormData(data);
+    let url = this.targetUrl + path;
+    let receiveData = this.ajax(url,"patch",encodeData,header,async);
     return receiveData;
   }
   // 转换参数
   encodeFormData(data) {
     //console.log(Object.prototype.toString.call(data));
-    console.log(data);
-    if (!data || Object.prototype.toString.call(data) !== '[object Object]') return "";
-    let pair = [];
-    for (let key in data) {
-      console.log(key);
-      if (!data.hasOwnProperty(key))
-        continue;
-      if (typeof data[key] === "function") {
-        data[key] = data[key]();
-      }
 
-      let value = encodeURIComponent(data[key].replace("%20", "+"));
-     // let value = encodeURIComponent(data[key]);
-      pair.push(key + "=" + value);
+    //console.log(Object.prototype.toString.call(data));
+   // if (!data || Object.prototype.toString.call(data) !== '[object Object]' || (typeof data) !== "object") return "";
+    let pair = [];
+    if(Object.prototype.toString.call(data) === '[object FormData]'){
+      //console.log(data);
+      return data;
+    }else{
+      if (!data || Object.prototype.toString.call(data) !== '[object Object]') return "";
+      for (let key in data) {
+        //console.log(key);
+        if (!data.hasOwnProperty(key))
+          continue;
+        if (typeof data[key] === "function") {
+          data[key] = data[key]();
+        }
+        let value = encodeURIComponent(data[key].replace("%20", "+"));
+        // let value = encodeURIComponent(data[key]);
+        pair.push(key + "=" + value);
+      }
+      //console.log(pair.join("&"));
+      return pair.join("&");
     }
-    console.log(pair.join("&"));
-    return pair.join("&");
+
   }
 }
 export {Ajax}

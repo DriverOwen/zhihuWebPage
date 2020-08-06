@@ -64,11 +64,13 @@
 <!--<script type="text/javascript" charset="utf8" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>-->
 <script type="module">
 import {Ajax} from "./utils/ajax.js";
-import {Cookie} from "./utils/setCookie.js";
+import {Cookie} from "./utils/Cookie.js";
 
 let a = new Ajax();
 let Ck = new Cookie();
-a.put("/users/likingAnswers/5f21091f0a55ff3f00d3f8d0","",{
+a.patch("/users/update/5f22ccc96497f96f08cbbd67",{
+  cover:"http://localhost:8000/uploads/upload_a0003a003a918555d1f816c9e06fed2f.jpg"
+},{
   name:"Authorization",
   value: Ck.getCookie("token")
 }).then(data => {

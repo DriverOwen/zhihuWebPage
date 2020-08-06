@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>知乎 - 有问题，上知乎</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="description" property="og:description" content="有问题，上知乎。知乎，可信赖的问答社区，以让每个人高效获得可信赖的解答为使命。知乎凭借认真、专业和友善的社区氛围，结构化、易获得的优质内容，基于问答的内容生产方式和独特的社区机制，吸引、聚集了各行各业中大量的亲历者、内行人、领域专家、领域爱好者，将高质量的内容透过人的节点来成规模地生产和分享。用户通过问答等交流方式建立信任和连接，打造和提升个人影响力，并发现、获得新机会。">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/edit-page.css">
+  <link rel="stylesheet" href="css/public.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_564736_8eu3y2rn56w.css">
+</head>
+<body>
+<div id="root">
+  <div>
+    <div class="headerBox"></div>
+  </div>
+  <main id="main">
+    <div id="user">
+      <div id="ProfileHeader" class="ProfileHeader">
+        <div class="Card">
+          <div class="ProfileHeader-userCover">
+            <div class="UserCoverEditor">
+              <div>
+                <lable class="UploadPicture-wrapper">
+                  <input type="file" accept="image/png,image/jpeg" class="UploadPicture-input">
+                  <div class="UserCoverGuide">
+                    <div class="UserCoverGuide-inner">
+                      <div class="UserCoverGuide-buttonContainer">
+                        <button class="DynamicColorButton">
+                          <svg class="Zi Zi--Camera" fill="currentColor" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path d="M20.094 6S22 6 22 8v10.017S22 20 19 20H4.036S2 20 2 18V7.967S2 6 4 6h3s1-2 2-2h6c1 0 2 2 2 2h3.094zM12 16a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm0 1.5a5 5 0 1 0-.001-10.001A5 5 0 0 0 12 17.5zm7.5-8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill-rule="evenodd"></path></svg>
+                          上传封面图片
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </lable>
+                <div class="UserCover" style="height: 240px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="ProfileHeader-wrapper">
+            <div class="ProfileHeader-main">
+              <div class="ProfileHeader-avatar" style="top:-25px">
+                <div class="UserAvatar">
+                  <img class="UserAvatar-inner" width="160" height="160" src="" alt="">
+                </div>
+                <div class="UploadPicture-wrapper">
+                  <input type="file" accept="image/png,image/jpeg" class="UploadPicture-input">
+                  <div class="Mask UserAvatarEditor-mask">
+                    <div class="Mask-mask UserAvatarEditor-maskInner "></div>
+                    <div class="Mask-content">
+                      <svg class="Zi Zi--Camera UserAvatarEditor-cameraIcon" fill="currentColor" viewBox="0 0 24 24" width="36" height="36"><path d="M20.094 6S22 6 22 8v10.017S22 20 19 20H4.036S2 20 2 18V7.967S2 6 4 6h3s1-2 2-2h6c1 0 2 2 2 2h3.094zM12 16a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7zm0 1.5a5 5 0 1 0-.001-10.001A5 5 0 0 0 12 17.5zm7.5-8a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill-rule="evenodd"></path></svg>
+                      <div class="UserAvatarEditor-maskInnerText">
+                        修改我的头像
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ProfileHeader-content">
+                <div class="ProfileEdit-fields">
+                  <form class="Field">
+                    <h3 class="Field-label">用户名</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="text" class="Input" name="username" value="">
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label">性别</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="radio" name="gender" value="男"> 男
+                        <input type="radio" name="gender" value="女" checked="" style="margin-left: 30px;"> 女
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label">一句话介绍自己</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="text" class="Input" name="username" value="">
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label">教育经历</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="text" class="Input" name="username" value="">
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label">职业经历</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="text" class="Input" name="username" value="">
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label">所在行业</h3>
+                    <div class="Field-content">
+                      <div>
+                        <input type="text" class="Input" name="username" value="">
+                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                      </div>
+                    </div>
+                  </form>
+                  <form class="Field">
+                    <h3 class="Field-label"></h3>
+                    <div class="Field-content">
+                      <div>
+                        <button type="submit" class="Button" style="background: #0084ff;color:#fff;">更新资料</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="ProfileHeader-contentFooter">
+
+                  <div class="ProfileHeader-buttons">
+                    <button type="button" class="Button"><a href="user.html" style="color: inherit">返回我的主页</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="cornerButtons"></div>
+</div>
+<div>
+  <div class="Menu-box">
+    <div class="Popover-content">
+      <span class="Popover-arrow">
+
+      </span>
+      <div class="AppHeaderProfileMenu">
+        <a href="#" class="Menu-item userPage">
+          <i class="iconfont icon-user1"></i>
+          <span>我的主页</span>
+        </a>
+        <a href="#" class="Menu-item changeInfo">
+          <i class="iconfont icon-Set"></i>
+          <span>设置</span>
+        </a>
+        <a href="#" class="Menu-item userLogout">
+          <i class="iconfont icon-shut-down-o"></i>
+          <span>退出</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <div>
+    <div class="ModalBox">
+
+    </div>
+  </div>
+</div>
+<script type="module" src="js/edit/domEvent.js"></script>
+</body>
+</html>
