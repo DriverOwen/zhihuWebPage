@@ -64,8 +64,8 @@
                     <h3 class="Field-label">用户名</h3>
                     <div class="Field-content">
                       <div>
-                        <input type="text" class="Input" name="username" value="">
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                        <input type="text" class="Input username" name="username" value="">
+                        <div class="ButtonGroup"><button type="button" class="Button userEditBtn" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
                       </div>
                     </div>
                   </form>
@@ -73,9 +73,9 @@
                     <h3 class="Field-label">性别</h3>
                     <div class="Field-content">
                       <div>
-                        <input type="radio" name="gender" value="男"> 男
-                        <input type="radio" name="gender" value="女" checked="" style="margin-left: 30px;"> 女
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                        <input type="radio" name="gender" checked="checked" value="female"> 男
+                        <input type="radio" name="gender" value="male"  style="margin-left: 30px;"> 女
+                        <div class="ButtonGroup"><button type="button" class="Button genderEditBtn" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
                       </div>
                     </div>
                   </form>
@@ -83,43 +83,43 @@
                     <h3 class="Field-label">一句话介绍自己</h3>
                     <div class="Field-content">
                       <div>
-                        <input type="text" class="Input" name="username" value="">
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
+                        <input type="text" class="Input headline" name="username" value="">
+                        <div class="ButtonGroup"><button type="button" class="Button headlineEditBtn" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
                       </div>
                     </div>
                   </form>
-                  <form class="Field">
-                    <h3 class="Field-label">教育经历</h3>
-                    <div class="Field-content">
-                      <div>
-                        <input type="text" class="Input" name="username" value="">
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
-                      </div>
-                    </div>
-                  </form>
-                  <form class="Field">
-                    <h3 class="Field-label">职业经历</h3>
-                    <div class="Field-content">
-                      <div>
-                        <input type="text" class="Input" name="username" value="">
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
-                      </div>
-                    </div>
-                  </form>
-                  <form class="Field">
-                    <h3 class="Field-label">所在行业</h3>
-                    <div class="Field-content">
-                      <div>
-                        <input type="text" class="Input" name="username" value="">
-                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>
-                      </div>
-                    </div>
-                  </form>
+<!--                  <form class="Field">-->
+<!--                    <h3 class="Field-label">教育经历</h3>-->
+<!--                    <div class="Field-content">-->
+<!--                      <div>-->
+<!--                        <input type="text" class="Input" name="username" value="">-->
+<!--                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </form>-->
+<!--                  <form class="Field">-->
+<!--                    <h3 class="Field-label">职业经历</h3>-->
+<!--                    <div class="Field-content">-->
+<!--                      <div>-->
+<!--                        <input type="text" class="Input" name="username" value="">-->
+<!--                        <div class="ButtonGroup"><button type="submit" class="Button" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </form>-->
+<!--                  <form class="Field">-->
+<!--                    <h3 class="Field-label">所在行业</h3>-->
+<!--                    <div class="Field-content">-->
+<!--                      <div>-->
+<!--                        <input type="text" class="Input business" name="username" value="">-->
+<!--                        <div class="ButtonGroup"><button type="button" class="Button businessEditBtn" style="background: #0084ff;color:#fff;">保存</button><button type="button" class="Button">取消</button></div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </form>-->
                   <form class="Field">
                     <h3 class="Field-label"></h3>
                     <div class="Field-content">
                       <div>
-                        <button type="submit" class="Button" style="background: #0084ff;color:#fff;">更新资料</button>
+                        <button type="button" class="Button submitEditBtn" style="background: #0084ff;color:#fff;">更新资料</button>
                       </div>
                     </div>
                   </form>
@@ -166,6 +166,26 @@
   <div>
     <div class="ModalBox">
 
+    </div>
+  </div>
+</div>
+<div>
+  <div class="searchRespond">
+    <div class="searchContainer">
+      <div class="searchList">
+        <div class="searchTitle">
+          <p>搜索结果</p>
+        </div>
+        <ul class="searchUl">
+
+        </ul>
+        <div class="searchTitle">
+          <p>推荐问题</p>
+        </div>
+        <ul class="recommendSearchUl">
+
+        </ul>
+      </div>
     </div>
   </div>
 </div>

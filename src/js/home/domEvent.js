@@ -51,7 +51,6 @@ function initDom() {
 
 
 function domEvent() {
-
   /* 加载question列表 */
   let TopstoryBox = getElement(".TopstoryBox")[0];
   /* 初始化问题列表 同时监听 按钮事件 */
@@ -126,7 +125,6 @@ function domEvent() {
         })
       }
     }
-
     return result
   }).catch(err => {
     console.log(err);

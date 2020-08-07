@@ -2,6 +2,12 @@ import {AskSubmit, getElement} from "../utils/public.js";
 import {verify} from "../utils/Verify.js";
 import {createQuestion} from "./question/putQuestion.js";
 import {Cookie} from "../utils/Cookie.js";
+import {getSearchRes} from "./search/getSearchRes.js";
+import {getAns} from "./answer/getAnswers.js";
+import {questionList} from "../template/question.js";
+import {sortQuestion, Voted} from "../utils/public.js";
+import {dislike, dislikeOrVote, getUserVote} from "./liker.js";
+
 let myCookie = new Cookie();
 
 function HeaderAndModalEvent() {
@@ -20,7 +26,9 @@ function HeaderAndModalEvent() {
   let askButton = getElement(".SearchBar-askButton")[0],
     SearchBarBox = getElement(".SearchBar-box")[0],
     SearchInput = getElement("#Popover1-toggle")[0],
-    iconSearch = getElement(".icon-search")[0];
+    iconSearch = getElement(".icon-search")[0],
+    searchContainer = getElement(".searchContainer")[0],
+    SearchBar = getElement(".SearchBar")[0];
 
   SearchInput.onfocus = ()=> {
     askButton.style.opacity = "0";
@@ -29,6 +37,12 @@ function HeaderAndModalEvent() {
     SearchBarBox.style.border = "1px solid rgb(132,142,165)";
     SearchBarBox.style.background = "#fff";
     iconSearch.style.color = "#0084ff";
+
+    let left = SearchBar.getBoundingClientRect().left;
+    searchContainer.style.display = "flex";
+    searchContainer.style.left = left + "px";
+    searchContainer.style.top = "52px";
+    searchContainer.style.animation = "fadeIn 0.3s ease";
   }
   SearchInput.onblur = ()=> {
     askButton.style.opacity = "1";
@@ -37,6 +51,114 @@ function HeaderAndModalEvent() {
     SearchBarBox.style.border = "1px solid #ebebeb";
     SearchBarBox.style.background = "#f6f6f6";
     iconSearch.style.color = "rgb(133,144,166)";
+
+  }
+
+  /* 响应搜索 */
+  let searchUl = getElement(".searchUl")[0],
+    recommendSearchUl = getElement(".recommendSearchUl")[0];
+  SearchInput.onkeyup = (e)=> {
+    searchUl.innerHTML = "";
+    recommendSearchUl.innerHTML = "";
+    if(SearchInput.value != ""){
+      getSearchRes(SearchInput.value).then(data => {
+        // console.log(data);
+        if(data.errno === 0 && data.data.length > 0){
+          data.data.forEach((res,index) => {
+            searchUl.innerHTML += `<a href="#/question/${res._id}"><li>${res.title}</li></a>`;
+          })
+        }else{
+          searchUl.innerHTML = "<li>无相关内容，请试试其他关键字查询!</li>";
+        }
+      })
+    }else{
+      getSearchRes(SearchInput.value).then(data => {
+        // console.log(data);
+        if(data.errno === 0 && data.data.length > 0){
+          data.data.forEach((res,index) => {
+            if (index > 4){
+              throw "break";
+            }
+            recommendSearchUl.innerHTML += `<a href="#/question/${res._id}"><li>${res.title}</li></a>`;
+          })
+        }
+      })
+    }
+    /* 回车渲染 */
+    if(e.keyCode == 13 && SearchInput.value != ""){
+      let result;
+      let TopstoryBox = getElement(".TopstoryBox")[0];
+
+      getSearchRes(SearchInput.value).then(data => {
+        if(data.data.length > 0){
+          TopstoryBox.innerHTML = "";
+          for (let i = 0;i < data.data.length;i++){
+            result = getAns(data.data[i]._id).then(ans => {
+              // console.log(ans);
+              if(ans.data.length == 0){
+                TopstoryBox.innerHTML += questionList(data.data[i].title,
+                  `暂时没有任何人回答该问题，赶紧去试试!`,
+                  data.data[i].createdAt,
+                  0,
+                  0,
+                  "",
+                  true,
+                  data.data[i]._id);
+              }else{
+                TopstoryBox.innerHTML += questionList(data.data[i].title,
+                  `${ans.data[0].answerer.username}:&nbsp;&nbsp;${ans.data[0].content}`.substring(0,97)+"...",
+                  data.data[i].createdAt,
+                  ans.data.length,
+                  ans.data[0].voteCount,
+                  ans.data[0]._id,
+                  true,
+                  data.data[i]._id);
+              }
+              return getElement(".TopstoryItem")
+            }).then(data => {
+              if(data.length == length){
+                sortQuestion(data);
+                /* 赞同 和 取消 事件 */
+                getElement(".vote").forEach((btn,index) => {
+                  btn.addEventListener("click",()=>{
+                    let ans_id = btn.id;
+                    dislikeOrVote(ans_id,btn);
+                  })
+                  verify.then(data =>{
+                    getUserVote(data.data._id).then(data => {
+                      let list = data.data
+                      console.log(list);
+                      let currentActive = list.filter(item => item._id === btn.id)
+                      console.log(currentActive);
+                      if (currentActive.length > 0) {
+                        Voted(btn,currentActive[0].voteCount);
+                      }
+                    })
+                  })
+                })
+                /* 踩 事件 */
+                getElement(".disVote").forEach((btn,index) =>{
+                  let flag = true;
+                  btn.addEventListener("click",()=>{
+                    let ans_id = btn.getAttribute("ans_id");
+                    if(!btn.classList.contains("is-active")){
+                      dislike(ans_id,btn,flag);
+                      flag = false;
+                    }else{
+                      btn.classList.remove("is-active");
+                    }
+                  })
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  }
+
+  searchContainer.onclick = ()=> {
+    searchContainer.style.display = "none";
   }
 
   /*  导航栏滚动切换事件 window scroll*/
@@ -86,6 +208,7 @@ function HeaderAndModalEvent() {
       ApFlag = !ApFlag;
     }
   }
+
 
 
   /* 个人头像子菜单点击事件  menu event */
@@ -139,6 +262,9 @@ function HeaderAndModalEvent() {
       MenuBox.style.display = "none";
       ApFlag = !ApFlag;
     }
+     if(e.target != SearchInput){
+       searchContainer.style.display = "none";
+     }
   }
 
   /* 提问限制事件 AskQuestion events */

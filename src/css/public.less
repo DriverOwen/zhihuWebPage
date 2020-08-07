@@ -525,6 +525,40 @@ button{
     }
   }
 }
+.searchContainer{
+  display: flex;
+  width: 400px;
+  background: #fff;
+  position: fixed;
+  z-index: 999;
+  box-shadow: 0 5px 8px rgba(26, 26, 26, 0.1);
+  display: none;
+  .searchList{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    .searchTitle{
+      color: #8590a6;
+      font-size: 14px;
+      padding: 15px 15px;
+      border-bottom:1px solid rgb(235,235,235);
+      flex: 1 1;
+    }
+    .searchUl,.recommendSearchUl{
+      li{
+        list-style: none;
+        font-size: 14px;
+        padding: 10px 15px;
+        cursor: pointer;
+        color: #1a1a1a;
+        &:hover{
+          background: rgb(246,246,246);
+        }
+      }
+    }
+  }
+}
+
 @keyframes going {
   0%{
     transform: translateY(10px);

@@ -502,6 +502,4 @@ function domEvent() {
       }
     }
   })
-
-
 }

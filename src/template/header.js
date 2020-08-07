@@ -14,7 +14,7 @@ function header(user_avatar) {
     <div class="SearchBar">
       <div class="Popover SearchBar-box">
         <label for="" class="SearchBar-input">
-          <input type="text" maxlength="100" id="Popover1-toggle" class="Input" placeholder="研究生学历真的重要吗" value="">
+          <input type="text" maxlength="100" id="Popover1-toggle" class="Input search-input" placeholder="研究生学历真的重要吗" value="">
         </label>
         <button class="SearchBar-searchButton">
           <i class="iconfont icon-search"></i>
