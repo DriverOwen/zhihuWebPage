@@ -1,4 +1,4 @@
-import {getElement,sortQuestion,Voted,AskSubmit,Check_FileType,upQstElement} from "../../utils/public.js";
+import {getElement,sortQuestion,Voted,AskSubmit,Check_FileType,upQstElement,VoteBtnEvent} from "../../utils/public.js";
 import {Cookie} from "../../utils/Cookie.js";
 import {loadQuestion} from "../question/loadQuestions.js";
 import {questionList} from "../../template/question.js";
@@ -143,36 +143,7 @@ function userDynamic(userId) {
                 }).catch(err => {
                   console.log(err);
                 }).then(data => {
-                  getElement(".vote").forEach((btn,index) => {
-                    btn.addEventListener("click",()=>{
-                      let ans_id = btn.id;
-                      dislikeOrVote(ans_id,btn);
-                    })
-                    verify.then(data =>{
-                      getUserVote(data.data._id).then(data => {
-                        let list = data.data
-                        console.log(list);
-                        let currentActive = list.filter(item => item._id === btn.id)
-                        console.log(currentActive);
-                        if (currentActive.length > 0) {
-                          Voted(btn,currentActive[0].voteCount);
-                        }
-                      })
-                    })
-                  })
-                  /* 踩 事件 */
-                  getElement(".disVote").forEach((btn,index) =>{
-                    let flag = true;
-                    btn.addEventListener("click",()=>{
-                      let ans_id = btn.getAttribute("ans_id");
-                      if(!btn.classList.contains("is-active")){
-                        dislike(ans_id,btn,flag);
-                        flag = false;
-                      }else{
-                        btn.classList.remove("is-active");
-                      }
-                    })
-                  })
+                  VoteBtnEvent();
                   /*  */
                 })
               }
@@ -357,41 +328,13 @@ function domEvent() {
                                 item.voteCount,
                                 item.content,
                                 0,
-                                answer._id);
+                                answer._id,
+                                question.data._id);
                               return ListContent
                             }).catch(err => {
                               console.log(err);
                             }).then(data => {
-                              getElement(".vote").forEach((btn,index) => {
-                                btn.addEventListener("click",()=>{
-                                  let ans_id = btn.id;
-                                  dislikeOrVote(ans_id,btn);
-                                })
-                                verify.then(data =>{
-                                  getUserVote(data.data._id).then(data => {
-                                    let list = data.data
-                                    console.log(list);
-                                    let currentActive = list.filter(item => item._id === btn.id)
-                                    console.log(currentActive);
-                                    if (currentActive.length > 0) {
-                                      Voted(btn,currentActive[0].voteCount);
-                                    }
-                                  })
-                                })
-                              })
-                              /* 踩 事件 */
-                              getElement(".disVote").forEach((btn,index) =>{
-                                let flag = true;
-                                btn.addEventListener("click",()=>{
-                                  let ans_id = btn.getAttribute("ans_id");
-                                  if(!btn.classList.contains("is-active")){
-                                    dislike(ans_id,btn,flag);
-                                    flag = false;
-                                  }else{
-                                    btn.classList.remove("is-active");
-                                  }
-                                })
-                              })
+                              VoteBtnEvent();
                               /*  */
                             })
                           }

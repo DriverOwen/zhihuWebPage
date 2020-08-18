@@ -7,6 +7,7 @@ import {getAns} from "./answer/getAnswers.js";
 import {questionList} from "../template/question.js";
 import {sortQuestion, Voted} from "../utils/public.js";
 import {dislike, dislikeOrVote, getUserVote} from "./liker.js";
+import {VoteBtnEvent} from "../utils/public.js";
 
 let myCookie = new Cookie();
 
@@ -119,36 +120,7 @@ function HeaderAndModalEvent() {
               if(data.length == length){
                 sortQuestion(data);
                 /* 赞同 和 取消 事件 */
-                getElement(".vote").forEach((btn,index) => {
-                  btn.addEventListener("click",()=>{
-                    let ans_id = btn.id;
-                    dislikeOrVote(ans_id,btn);
-                  })
-                  verify.then(data =>{
-                    getUserVote(data.data._id).then(data => {
-                      let list = data.data
-                      console.log(list);
-                      let currentActive = list.filter(item => item._id === btn.id)
-                      console.log(currentActive);
-                      if (currentActive.length > 0) {
-                        Voted(btn,currentActive[0].voteCount);
-                      }
-                    })
-                  })
-                })
-                /* 踩 事件 */
-                getElement(".disVote").forEach((btn,index) =>{
-                  let flag = true;
-                  btn.addEventListener("click",()=>{
-                    let ans_id = btn.getAttribute("ans_id");
-                    if(!btn.classList.contains("is-active")){
-                      dislike(ans_id,btn,flag);
-                      flag = false;
-                    }else{
-                      btn.classList.remove("is-active");
-                    }
-                  })
-                })
+                VoteBtnEvent();
               }
             })
           }
@@ -321,6 +293,28 @@ function HeaderAndModalEvent() {
         }
       })
     })
+  }
+
+  /* backTopBtn 返回顶部事件 */
+  let cornerButton = getElement(".cornerButtons")[0];
+  window.onscroll = ()=> {
+    // console.log(window.pageYOffset);
+    if(window.pageYOffset > 300){
+      cornerButton.classList.remove("cornerBtnIsShow");
+    }else{
+      cornerButton.classList.add("cornerBtnIsShow");
+    }
+  }
+  let backTopTimer = null;
+  cornerButton.onclick = ()=> {
+    let y = window.scrollY;
+    backTopTimer = setInterval(()=>{
+      y -= 30;
+      window.scrollTo(0,y);
+      if(y <= 0){
+        clearInterval(backTopTimer);
+      }
+    },1000/60);
   }
 }
 export {

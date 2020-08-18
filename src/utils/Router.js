@@ -6,7 +6,8 @@ import {getAns} from "../js/answer/getAnswers.js";
 import {dislike, dislikeOrVote, getUserVote} from "../js/liker.js";
 import {Voted} from "./public.js";
 import {getComments} from "../js/comment/getComment.js";
-/* 问题详细页面路由导航 */
+import {VoteBtnEvent} from "./public.js";
+/* 问题详细页面路由导航 （没有抽离业务 整个项目目前只有问题路由导航） */
 function refresh() {
   console.log(location.hash.slice(1));//获取到相应的hash值
   let currentUrl = location.hash.slice(1) || '/';//如果存在hash值则获取到，否则设置hash值为/
@@ -32,37 +33,8 @@ function refresh() {
           console.log(err);
         }).then(data => {
           if(data === "ok"){
-            // alert("执行dom");
-            getElement(".vote").forEach((btn,index) => {
-              btn.addEventListener("click",()=>{
-                let ans_id = btn.id;
-                dislikeOrVote(ans_id,btn);
-              })
-              verify.then(data =>{
-                getUserVote(data.data._id).then(data => {
-                  let list = data.data
-                  //console.log(list);
-                  let currentActive = list.filter(item => item._id === btn.id)
-                  console.log(currentActive);
-                  if (currentActive.length > 0) {
-                    Voted(btn,currentActive[0].voteCount);
-                  }
-                })
-              })
-            })
-            /* 踩 事件 */
-            getElement(".disVote").forEach((btn,index) =>{
-              let flag = true;
-              btn.addEventListener("click",()=>{
-                let ans_id = btn.getAttribute("ans_id");
-                if(!btn.classList.contains("is-active")){
-                  dislike(ans_id,btn,flag);
-                  flag = false;
-                }else{
-                  btn.classList.remove("is-active");
-                }
-              })
-            })
+            /* 赞和踩功能 */
+            VoteBtnEvent();
             /* 获取评论数 */
             getElement(".commentCount").forEach((CountElement,index) => {
               let q_id = CountElement.parentElement.getAttribute("q_id");
@@ -78,9 +50,6 @@ function refresh() {
                 console.log(err);
               })
             })
-
-            /* 用户关注问题 */
-
 
           }
         })

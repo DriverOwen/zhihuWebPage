@@ -1,6 +1,9 @@
 /* 定义公共方法 */
 
 /* get html dom element */
+import {dislike, dislikeOrVote, getUserVote} from "../js/liker.js";
+import {verify} from "./Verify.js";
+
 function getElement(element) {
   return document.querySelectorAll(element);
 }
@@ -133,6 +136,40 @@ function upQstElement(title,describe,parent,id) {
   parent.appendChild(divBox);
 }
 
+/* 按钮赞同和踩事件 */
+function VoteBtnEvent(){
+  getElement(".vote").forEach((btn,index) => {
+    btn.addEventListener("click",()=>{
+      let ans_id = btn.id;
+      dislikeOrVote(ans_id,btn);
+    })
+    verify.then(data =>{
+      getUserVote(data.data._id).then(data => {
+        let list = data.data
+        console.log(list);
+        let currentActive = list.filter(item => item._id === btn.id)
+        console.log(currentActive);
+        if (currentActive.length > 0) {
+          Voted(btn,currentActive[0].voteCount);
+        }
+      })
+    })
+  })
+  /* 踩 事件 */
+  getElement(".disVote").forEach((btn,index) =>{
+    let flag = true;
+    btn.addEventListener("click",()=>{
+      let ans_id = btn.getAttribute("ans_id");
+      if(!btn.classList.contains("is-active")){
+        dislike(ans_id,btn,flag);
+        flag = false;
+      }else{
+        btn.classList.remove("is-active");
+      }
+    })
+  })
+}
+
 export {
   getElement,
   loginOrUpWarning,
@@ -141,5 +178,6 @@ export {
   AskSubmit,
   Check_FileType,
   diffTime,
-  upQstElement
+  upQstElement,
+  VoteBtnEvent
 }

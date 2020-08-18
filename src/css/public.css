@@ -619,6 +619,27 @@ button {
 .searchContainer .searchList .recommendSearchUl li:hover {
   background: #f6f6f6;
 }
+.cornerBtnIsShow {
+  display: none;
+}
+.cornerButtons {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
+}
+.cornerButtons .btnInner {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  cursor: pointer;
+}
+.cornerButtons .btnInner svg {
+  color: #8590a6;
+}
 @keyframes going {
   0% {
     transform: translateY(10px);

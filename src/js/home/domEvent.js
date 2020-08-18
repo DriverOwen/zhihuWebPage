@@ -1,4 +1,4 @@
-import {getElement,sortQuestion,Voted,AskSubmit} from "../../utils/public.js";
+import {getElement,sortQuestion,Voted,AskSubmit,VoteBtnEvent} from "../../utils/public.js";
 import {Cookie} from "../../utils/Cookie.js";
 import {loadQuestion} from "../question/loadQuestions.js";
 import {questionList} from "../../template/question.js";
@@ -10,6 +10,7 @@ import {verify} from "../../utils/Verify.js";
 import {createQuestion} from "../question/putQuestion.js";
 import {modal} from "../../template/modal.js";
 import {HeaderAndModalEvent} from "../public.js";
+
 /* 网页加载判断事件 判断用户是否登录 window load limitation */
 let myCookie = new Cookie();
 window.onload = ()=> {
@@ -91,36 +92,7 @@ function domEvent() {
           if(data.length == length){
             sortQuestion(data);
             /* 赞同 和 取消 事件 */
-            getElement(".vote").forEach((btn,index) => {
-              btn.addEventListener("click",()=>{
-                let ans_id = btn.id;
-                dislikeOrVote(ans_id,btn);
-              })
-              verify.then(data =>{
-                getUserVote(data.data._id).then(data => {
-                  let list = data.data
-                  console.log(list);
-                  let currentActive = list.filter(item => item._id === btn.id)
-                  console.log(currentActive);
-                  if (currentActive.length > 0) {
-                    Voted(btn,currentActive[0].voteCount);
-                  }
-                })
-              })
-            })
-            /* 踩 事件 */
-            getElement(".disVote").forEach((btn,index) =>{
-              let flag = true;
-              btn.addEventListener("click",()=>{
-                let ans_id = btn.getAttribute("ans_id");
-                if(!btn.classList.contains("is-active")){
-                  dislike(ans_id,btn,flag);
-                  flag = false;
-                }else{
-                  btn.classList.remove("is-active");
-                }
-              })
-            })
+            VoteBtnEvent();
           }
         })
       }
