@@ -7,7 +7,7 @@ import {getAns} from "./answer/getAnswers.js";
 import {questionList} from "../template/question.js";
 import {sortQuestion, Voted} from "../utils/public.js";
 import {dislike, dislikeOrVote, getUserVote} from "./liker.js";
-import {VoteBtnEvent} from "../utils/public.js";
+import {VoteBtnEvent,debounce} from "../utils/public.js";
 
 let myCookie = new Cookie();
 
@@ -58,7 +58,8 @@ function HeaderAndModalEvent() {
   /* 响应搜索 */
   let searchUl = getElement(".searchUl")[0],
     recommendSearchUl = getElement(".recommendSearchUl")[0];
-  SearchInput.onkeyup = (e)=> {
+
+  let searchRes = ()=> {
     searchUl.innerHTML = "";
     recommendSearchUl.innerHTML = "";
     if(SearchInput.value != ""){
@@ -89,7 +90,6 @@ function HeaderAndModalEvent() {
     if(e.keyCode == 13 && SearchInput.value != ""){
       let result;
       let TopstoryBox = getElement(".TopstoryBox")[0];
-
       getSearchRes(SearchInput.value).then(data => {
         if(data.data.length > 0){
           TopstoryBox.innerHTML = "";
@@ -127,6 +127,11 @@ function HeaderAndModalEvent() {
         }
       })
     }
+  }
+  /* 防抖 */
+  let searchOp = debounce(searchRes,500)
+  SearchInput.onkeyup = (e)=> {
+    searchOp();
   }
 
   searchContainer.onclick = ()=> {

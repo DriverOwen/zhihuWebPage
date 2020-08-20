@@ -170,6 +170,17 @@ function VoteBtnEvent(){
   })
 }
 
+/* 搜索防抖 */
+function debounce(func,delay){
+  let timer = null;
+  return function(...args){
+    if(timer) clearTimeout(timer)
+    timer = setTimeout(()=>{
+      func.apply(this,args)
+    },delay)
+  }
+}
+
 export {
   getElement,
   loginOrUpWarning,
@@ -179,5 +190,6 @@ export {
   Check_FileType,
   diffTime,
   upQstElement,
-  VoteBtnEvent
+  VoteBtnEvent,
+  debounce
 }
